@@ -51,28 +51,21 @@ export const constantRoutes = [{
         name: 'accountManagement',
         meta: { title: '账号管理', icon: 'zhanghaoguanli' },
         children: [{
-                path: 'anchorAccount',
-                name: 'anchorAccount',
-                component: () =>
-                    import ('@/views/accountManagement/anchorAccount/index'),
-                meta: { title: '主播账号' },
-                // children: [{
-                //         path: 'anchorAccount',
-                //         component: () =>
-                //             import ('@/views/accountManagement/anchorAccount/index'),
-                //         meta: { title: 'menu1' }
-                //     }
+            path: 'anchorAccount',
+            name: 'anchorAccount',
+            component: () =>
+                import ('@/views/accountManagement/anchorAccount/index'),
+            meta: { title: '账号管ss理' },
+            // children: [{
+            //         path: 'anchorAccount',
+            //         component: () =>
+            //             import ('@/views/accountManagement/anchorAccount/index'),
+            //         meta: { title: 'menu1' }
+            //     }
 
-                // ]
+            // ]
 
-            },
-            {
-                path: 'menu2',
-                component: () =>
-                    import ('@/views/nested/menu2/index'),
-                meta: { title: '管理员账号' }
-            }
-        ]
+        }]
     },
 
     {
