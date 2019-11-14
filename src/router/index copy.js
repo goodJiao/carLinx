@@ -45,21 +45,21 @@ export const constantRoutes = [{
     },
 
     {
-        path: '/accountManagement',
+        path: '/accountMan',
         component: Layout,
-        redirect: '/accountManagement/anchorAccount',
-        name: 'accountManagement',
+        redirect: '/accountMan/anchorAccount',
+        name: 'accountMan',
         meta: { title: '账号管理', icon: 'zhanghaoguanli' },
         children: [{
             path: 'anchorAccount',
             name: 'anchorAccount',
             component: () =>
-                import ('@/views/accountManagement/anchorAccount/index'),
+                import ('@/views/accountMan/anchorAccount/index'),
             meta: { title: '账号管ss理' },
             // children: [{
             //         path: 'anchorAccount',
             //         component: () =>
-            //             import ('@/views/accountManagement/anchorAccount/index'),
+            //             import ('@/views/accountMan/anchorAccount/index'),
             //         meta: { title: 'menu1' }
             //     }
 
@@ -69,7 +69,7 @@ export const constantRoutes = [{
     },
 
     {
-        path: '/example',
+        path: '/',
         component: Layout,
         redirect: '/example/table',
         name: 'Example',

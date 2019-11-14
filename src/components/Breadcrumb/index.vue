@@ -32,18 +32,18 @@ export default {
       let matched = this.$route.matched.filter(item => item.meta && item.meta.title)
       const first = matched[0]
 
-      if (!this.isaccountManagement(first)) {
-        matched = [{ path: '/accountManagement', meta: { title: 'accountManagement' }}].concat(matched)
+      if (!this.isaccountMan(first)) {
+        matched = [{ path: '/accountMan', meta: { title: 'accountMan' }}].concat(matched)
       }
 
       this.levelList = matched.filter(item => item.meta && item.meta.title && item.meta.breadcrumb !== false)
     },
-    isaccountManagement(route) {
+    isaccountMan(route) {
       const name = route && route.name
       if (!name) {
         return false
       }
-      return name.trim().toLocaleLowerCase() === 'accountManagement'.toLocaleLowerCase()
+      return name.trim().toLocaleLowerCase() === 'accountMan'.toLocaleLowerCase()
     },
     pathCompile(path) {
       // To solve this problem https://github.com/PanJiaChen/vue-element-admin/issues/561

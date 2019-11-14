@@ -74,8 +74,10 @@ For `typescript` version, you can use [vue-typescript-admin-template](https://gi
 
 - [vue-typescript-admin-template](https://github.com/Armour/vue-typescript-admin-template)
 
-## Browsers support
+## Browsers support 
 
+
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
 Modern browsers and Internet Explorer 10+.
 | IE10, IE11, Edge| last 2 versions| last 2 versions| last 2 versions
 

@@ -31,7 +31,8 @@ import Layout from '@/layout'
  * all roles can be accessed
  */
 export const constantRoutes = [{
-        path: '/login',
+        path: '*',
+        // name: 'Login',
         component: () =>
             import ('@/views/login/index'),
         hidden: true
@@ -45,21 +46,20 @@ export const constantRoutes = [{
     },
 
     {
-        path: '/accountManagement',
+        path: '/accountMan',
         component: Layout,
-        redirect: '/accountManagement/anchorAccount',
-        name: 'accountManagement',
+        name: 'accountMan',
         meta: { title: '账号管理', icon: 'zhanghaoguanli' },
         children: [{
                 path: 'anchorAccount',
                 name: 'anchorAccount',
                 component: () =>
-                    import ('@/views/accountManagement/anchorAccount/index'),
-                meta: { title: '主播账号' },
+                    import ('@/views/accountMan/anchorAccount/index'),
+                meta: { title: '主播账号', icon: 'zhubo' },
                 // children: [{
                 //         path: 'anchorAccount',
                 //         component: () =>
-                //             import ('@/views/accountManagement/anchorAccount/index'),
+                //             import ('@/views/accountMan/anchorAccount/index'),
                 //         meta: { title: 'menu1' }
                 //     }
 
@@ -70,44 +70,92 @@ export const constantRoutes = [{
                 path: 'menu2',
                 component: () =>
                     import ('@/views/nested/menu2/index'),
-                meta: { title: '管理员账号' }
+                meta: { title: '管理员账号', icon: 'peizhiguanliyuanzhanghao' }
             }
         ]
     },
 
     {
-        path: '/example',
+        path: '/messageMan',
         component: Layout,
-        redirect: '/example/table',
-        name: 'Example',
-        meta: { title: 'Example', icon: 'example' },
+        children: [{
+            path: 'index',
+            name: 'messageManag',
+            component: () =>
+                import ('@/views/messageMan/index'),
+            meta: { title: '留言管理', icon: 'liuyanguanli' }
+        }]
+    },
+
+    {
+        path: '/permissionMan',
+        component: Layout,
+        children: [{
+            path: 'index',
+            name: 'permissionMan',
+            component: () =>
+                import ('@/views/permissionMan/index'),
+            meta: { title: '权限管理', icon: 'permission' }
+        }]
+    },
+
+    {
+        path: '/dataMan',
+        component: Layout,
+        redirect: '/dataMan/reportForm',
+        name: 'DataMan',
+        meta: { title: '数据管理', icon: 'shuju' },
         children: [{
                 path: 'table',
                 name: 'Table',
                 component: () =>
-                    import ('@/views/table/index'),
+                    import ('@/views/dataMan/table/index'),
                 meta: { title: 'Table', icon: 'table' }
             },
             {
                 path: 'tree',
                 name: 'Tree',
                 component: () =>
-                    import ('@/views/tree/index'),
+                    import ('@/views/dataMan/tree/index'),
                 meta: { title: 'Tree', icon: 'tree' }
-            }
+            },
+            {
+                path: 'reportForm',
+                name: 'ReportForm',
+                component: () =>
+                    import ('@/views/dataMan/reportForm/index'),
+                meta: { title: '报表', icon: 'table' }
+            },
         ]
     },
-
+    // 广告系统
     {
-        path: '/form',
+        path: '/adSystem',
         component: Layout,
+        name: 'AdSystem',
+        meta: { title: '广告投放系统', icon: 'guanggao' },
         children: [{
-            path: 'index',
-            name: 'Form',
-            component: () =>
-                import ('@/views/form/index'),
-            meta: { title: 'Form', icon: 'form' }
-        }]
+                path: 'table',
+                name: 'Table',
+                component: () =>
+                    import ('@/views/adSystem/table/index'),
+                meta: { title: 'Table', icon: 'table' }
+            },
+            {
+                path: 'tree',
+                name: 'Tree',
+                component: () =>
+                    import ('@/views/adSystem/tree/index'),
+                meta: { title: 'Tree', icon: 'tree' }
+            },
+            {
+                path: 'reportForm',
+                name: 'ReportForm',
+                component: () =>
+                    import ('@/views/adSystem/reportForm/index'),
+                meta: { title: '报表', icon: 'table' }
+            },
+        ]
     },
 
     {
@@ -172,17 +220,8 @@ export const constantRoutes = [{
         ]
     },
 
-    {
-        path: 'external-link',
-        component: Layout,
-        children: [{
-            path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-            meta: { title: 'External Link', icon: 'link' }
-        }]
-    },
-
     // 404 page must be placed at the end !!!
-    { path: '*', redirect: '/404', hidden: true }
+    // { path: '*', redirect: '/404', hidden: true }
 ]
 
 const createRouter = () => new Router({
